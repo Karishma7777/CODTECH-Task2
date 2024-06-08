@@ -1,0 +1,42 @@
+import java.util.Scanner;
+public class StudentGradeTracker {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the number of subjects: ");
+		int numOfGrades=s.nextInt();
+		double totalGrade=0;
+		for(int j=1;j<=numOfGrades;j++) {
+			System.out.println("Enter grade for subject "+j+": ");
+			double grade=s.nextDouble();
+			totalGrade += grade;
+		}
+		double averageGrade=totalGrade/numOfGrades;
+		System.out.println("Average grade is: " +averageGrade);
+		String letterGrade = calculateLetterGrade(averageGrade);
+		System.out.println("Letter grade is: " +letterGrade);
+		s.close();
+	}
+	
+	public static String calculateLetterGrade(double grade) {
+		if (grade>=90) {
+			return "A";
+		}
+		else if (grade>=80) {
+			return "B";
+		}
+		else if (grade>=70) {
+			return "C";
+		}
+		else if (grade>=60) {
+			return "D";
+		}
+		else if (grade>=50) {
+			return "E";
+		}else {
+			return "F";
+		}
+	}
+
+}
